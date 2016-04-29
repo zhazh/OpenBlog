@@ -1,0 +1,1 @@
+﻿An example of mircoblog based on ThinkPHP framework.
