@@ -1,0 +1,55 @@
+.content-wrapper {
+    padding-top: 25px;
+    padding-bottom: 0;
+}
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 60px 0; /* Space out the Bootstrap <hr> more */
+}
+
+.sigin-box-warpper-heading {
+    margin:0;
+    padding-top:20px;
+    padding-bottom:30px;
+    text-align:center;
+    font-weight: bolder;
+}
+.sigin-box-warpper{
+    margin:0;
+    padding-top:25px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+ 
+    border-radius: 8px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#ccddcc; 
+}
+
+.sigin-box-warpper .form-group {
+    padding:0;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.sigin-box-warpper .sign-box-error-info{
+    color:red;
+    font-weight:bolder;
+}
+
+.sigin-box-warpper .form-group .label {
+    font-weight:lighter;
+}
+
+.member-context-wrapper {
+    margin:0;
+    padding-top: 30px;
+    padding-bottom:10px;
+}
+
+.member-tweet-editor {
+    resize:none;
+}

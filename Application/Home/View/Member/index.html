@@ -1,0 +1,40 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>OpenBlog</title>    
+</block>
+
+<block name="menu">
+    <include file="Public:member.menu" />
+</block>
+
+<block name="content">
+    <div class="member-context-wrapper row">
+        <div class="col-md-2">
+            <include file="Member:leftmenu" />
+        </div>
+        <div class="col-md-7">
+            <form class="" action="" method="post">
+                <div class="form-group">
+                    <label for="tweet-editor" class="sr-only">写微博</label>
+                    <textarea id="tweet-editor" class="form-control member-tweet-editor" rows="3" placeholder="快来分享你的观点吧..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary  pull-right">发布</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div class="userinfo">
+                <div class="row">
+                    {$Think.session.user.name}
+                </div>
+                <div class="row">
+                    <div class="col-md-4">博文</div>
+                    <div class="col-md-4">关注</div>
+                    <div class="col-md-4">粉丝</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

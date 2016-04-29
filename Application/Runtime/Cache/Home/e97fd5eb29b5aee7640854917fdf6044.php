@@ -10,11 +10,11 @@
 
 
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/OpenBlog/Public/openblog.css">
+        <link rel="stylesheet" href="/OpenBlog/Public/css/open-blog.css">
     </head>
     
     <body>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1"></div>
@@ -31,7 +31,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="<?php echo U('User/login');?>">登录</a></li>
+    <li><a href="<?php echo U('User/login');?>">登录</a></li>
     <li><a href="<?php echo U('User/reg');?>">注册</a></li>
 </ul>
 
@@ -47,36 +47,68 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    
+                    <div class="content-wrapper">
+                        
     <div class="row">
-        <div class="col-md-offset-4 col-md-4">           
-            <form class="form-sigin">
-                <h2 class="form-sigin-heading">用户注册</h2>
+        <div class="col-md-offset-3 col-md-6">
+            <div class="sigin-box-warpper-heading">
+                <h2>注册用户</h2>
+            </div>
+            <form action="<?php echo U('User/add');?>" method="post" class="sigin-box-warpper form-horizontal">
+                <div class="sign-box-error-info">
+                    <?php if(isset($message)): ?><p><span class="glyphicon glyphicon-remove"></span><?php echo ($message); ?></p><?php endif; ?>
+                    <!--
+                    <p><span class="glyphicon glyphicon-remove"></span>用户名已存在！</p>
+                    -->
+                </div>
                 <div class="form-group">
-                    <label for="regUsername" class="control-label sr-only">用户名</label>
-                    <input type="text" class="form-control" id="regUsername" placeholder="用户名" required autofocus>
+                    <label for="regUsername" class="control-label col-md-3">用户名</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="regUsername" name="username" placeholder="用户名" required autofocus>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="sign-box-error-info">*</div>
+                    </div>
                 </div>                
                 <div class="form-group">
-                    <label for="regEmail" class="control-label sr-only">邮箱</label>
-                    <input type="email" class="form-control" id="regEmail" placeholder="邮箱" required autofocus>
+                    <label for="regEmail" class="control-label col-md-3">邮箱</label>
+                    <div class="col-md-7">
+                        <input type="email" class="form-control" id="regEmail" name="email" placeholder="邮箱" required autofocus>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="sign-box-error-info">*</div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="regPasswd1" class="control-label sr-only">密码</label>
-                    <input type="password" class="form-control" id="regPasswd1" placeholder="至少6位的数字和字母组合" required>
+                    <label for="regPasswd1" class="control-label col-md-3">密码</label>
+                    <div class="col-md-7">
+                        <input type="password" class="form-control" id="regPasswd1" name="passwd" placeholder="至少6位的数字和字母组合" required>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="sign-box-error-info">*</div>
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="regPasswd2" class="control-label sr-only">密码</label>
-                    <input type="password" class="form-control" id="regPasswd2" placeholder="再输入一次密码" required>
+                    <label for="regPasswd2" class="control-label col-md-3">确认密码</label>
+                    <div class="col-md-7">
+                        <input type="password" class="form-control col-md-10" id="regPasswd2" placeholder="再输入一次密码" required>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="sign-box-error-info">*</div>
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">提交</button>
+                    <div class="col-md-offset-3 col-md-7">
+                        <button type="submit" class="btn btn-primary btn-block">注册</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -95,6 +127,7 @@
             </div>
         </div>
         
+        <script src="/OpenBlog/Public/js/open-blog.js"></script>
         <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>

@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <block name="title">
-            <title>标题</title>    
-        </block>
+        
+    <title>OpenBlog</title>    
+
 
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="__PUBLIC__/css/open-blog.css">
+        <link rel="stylesheet" href="/OpenBlog/Public/css/open-blog.css">
     </head>
     
     <body>
@@ -29,7 +29,26 @@
                             <a class="navbar-brand" href="#">OpenBlog</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <block name="menu">menu</block>
+                            
+    <ul class="nav navbar-nav navbar-right">
+    <li>
+        <a href="">
+            <span class="glyphicon glyphicon-user"></span>
+            <?php echo ($_SESSION['user']['name']); ?>
+        </a>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="">账号设置</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<?php echo U('User/logout');?>">退出</a></li>
+        </ul>
+    </li>
+</ul>
+
                         </div>
                     </div>
                     <div class="col-md-1"></div>
@@ -43,7 +62,40 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <div class="content-wrapper">
-                        <block name="content">内容</block>
+                        
+    <div class="member-context-wrapper row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+  <li role="presentation" class="active"><a href="#">首页</a></li>
+  <li role="presentation"><a href="#">消息</a></li>
+</ul>
+        </div>
+        <div class="col-md-7">
+            <form class="" action="" method="post">
+                <div class="form-group">
+                    <label for="tweet-editor" class="sr-only">写微博</label>
+                    <textarea id="tweet-editor" class="form-control member-tweet-editor" rows="3" placeholder="快来分享你的观点吧..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary  pull-right">发布</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div class="userinfo">
+                <div class="row">
+                    <?php echo ($_SESSION['user']['name']); ?>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">博文</div>
+                    <div class="col-md-4">关注</div>
+                    <div class="col-md-4">粉丝</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -63,7 +115,7 @@
             </div>
         </div>
         
-        <script src="__PUBLIC__/js/open-blog.js"></script>
+        <script src="/OpenBlog/Public/js/open-blog.js"></script>
         <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>

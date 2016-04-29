@@ -10,11 +10,11 @@
 
 
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/OpenBlog/Public/openblog.css">
+        <link rel="stylesheet" href="/OpenBlog/Public/css/open-blog.css">
     </head>
     
     <body>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1"></div>
@@ -31,7 +31,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="<?php echo U('User/login');?>">登录</a></li>
+    <li><a href="<?php echo U('User/login');?>">登录</a></li>
     <li><a href="<?php echo U('User/reg');?>">注册</a></li>
 </ul>
 
@@ -47,22 +47,32 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    
+                    <div class="content-wrapper">
+                        
     <div class="row">
         <div class="col-md-offset-4 col-md-4">           
-            <form action="<?php echo U('User/checkLogin');?>" method="post" class="form-sigin" role="form">
-                <h2 class="form-sigin-heading">用户登录</h2>
+            <div class="sigin-box-warpper-heading">
+                <h2>用户登录</h2>
+            </div>
+            
+            <form action="<?php echo U('User/login');?>" method="post" class="sigin-box-warpper">
+                <div class="sign-box-error-info">
+                    <?php if(isset($message)): ?><p><span class="glyphicon glyphicon-remove"></span><?php echo ($message); ?></p><?php endif; ?>
+                </div>
                 <div class="form-group">
-                    <label for="loginEmail" class="control-label sr-only">邮箱</label>
+                    <label for="loginEmail" class="control-label">邮箱</label>
                     <input type="email" class="form-control" id="loginEmail" name="userEmail" placeholder="邮箱" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label for="loginPasswd" class="control-label sr-only">密码</label>
+                    <label for="loginPasswd" class="control-label">密码</label>
                     <input type="password" class="form-control" id="loginPasswd" name="userPasswd" placeholder="密码" required>
                 </div>
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" value="loginRemembered"> 记住登录
+                        <input type="checkbox" value="loginRemembered">记住密码
+                    </label>
+                    <label class="pull-right">
+                        <a href="">忘记密码？</a>
                     </label>
                 </div>
                 
@@ -73,6 +83,7 @@
         </div>
     </div>
 
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -91,6 +102,7 @@
             </div>
         </div>
         
+        <script src="/OpenBlog/Public/js/open-blog.js"></script>
         <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
