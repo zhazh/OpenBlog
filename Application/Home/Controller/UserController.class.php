@@ -33,21 +33,29 @@ class UserController extends Controller {
             $data['passwd'] = md5($_POST['passwd']);
             $data['email'] = $_POST['email'];
             $data['create_date'] = date("Y-m-d H:i:s");
-            if ($user->create($data)) {
-                $result = $user->add();
-                if ($result) {
-                    // insert ok.
-                    $data['id'] = $result;
-                    session("user",$data);
-                    $this->redirect('Member/index');
+            
+            try{
+                //捕获异常
+                //可以使用配置异常处理页面来显示异常
+                if ($user->create($data)) {
+                    if ($result = $user->add()) {
+                        // insert ok.
+                        $data['id'] = $result;
+                        session("user",$data);
+                        $this->redirect('Member/index');
+                    }else{
+                        $this->assign('message','插入数据库出错');
+                        $this->display('User/reg');
+                    }
                 }else{
-                    $this->assign('message','插入数据库出错');
+                    $this->assign('message','生成模型数据出错！');
                     $this->display('User/reg');
                 }
-            }else{
-                $this->assign('message','生成模型数据出错！');
-                $this->display('User/reg');
+            }catch(\Think\Exception $e){
+                    $this->assign('message','注册用户出错');
+                    $this->display('User/reg');
             }
+
         }else{
             $this->redirect('User/reg');
         }

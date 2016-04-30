@@ -56,9 +56,11 @@
             </div>
             
             <form action="<?php echo U('User/login');?>" method="post" class="sigin-box-warpper">
-                <div class="sign-box-error-info">
-                    <?php if(isset($message)): ?><p><span class="glyphicon glyphicon-remove"></span><?php echo ($message); ?></p><?php endif; ?>
-                </div>
+                <?php if(isset($message)): ?><div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <?php echo ($message); ?>
+                    </div><?php endif; ?>
+                
                 <div class="form-group">
                     <label for="loginEmail" class="control-label">邮箱</label>
                     <input type="email" class="form-control" id="loginEmail" name="userEmail" placeholder="邮箱" required autofocus>
@@ -94,7 +96,11 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <footer>
-                        <p class="pull-right"><a href="#">回到顶部</a></p>
+                        <p class="pull-right">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-menu-up"></span>
+                            </a>
+                        </p>
                         <p>&copy; 2016 鸟语花香股份有限公司. &middot; <a href="#">免责条款</a> &middot; <a href="#">联系我们</a></p>
                     </footer>
                 </div>
@@ -102,8 +108,8 @@
             </div>
         </div>
         
-        <script src="/OpenBlog/Public/js/open-blog.js"></script>
         <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="/OpenBlog/Public/js/open-blog.js"></script>
     </body>
 </html>

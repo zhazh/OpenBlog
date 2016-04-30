@@ -15,11 +15,13 @@
             </div>
             
             <form action="{:U('User/login')}" method="post" class="sigin-box-warpper">
-                <div class="sign-box-error-info">
-                    <if condition="isset($message)">
-                        <p><span class="glyphicon glyphicon-remove"></span>{$message}</p>
-                    </if>
-                </div>
+                <if condition="isset($message)">
+                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        {$message}
+                    </div>
+                </if>
+                
                 <div class="form-group">
                     <label for="loginEmail" class="control-label">邮箱</label>
                     <input type="email" class="form-control" id="loginEmail" name="userEmail" placeholder="邮箱" required autofocus>

@@ -71,6 +71,9 @@
 </ul>
         </div>
         <div class="col-md-7">
+            <!--------------------------------------------
+            ===================editor=====================
+            -->
             <form class="" action="" method="post">
                 <div class="form-group">
                     <label for="tweet-editor" class="sr-only">写微博</label>
@@ -78,6 +81,7 @@
                 </div>
                 
                 <div class="form-group">
+                    <label id="tweet-editor-counter">您还可以输入字数：250</label>
                     <button type="submit" class="btn btn-primary  pull-right">发布</button>
                 </div>
             </form>
@@ -107,7 +111,11 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <footer>
-                        <p class="pull-right"><a href="#">回到顶部</a></p>
+                        <p class="pull-right">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-menu-up"></span>
+                            </a>
+                        </p>
                         <p>&copy; 2016 鸟语花香股份有限公司. &middot; <a href="#">免责条款</a> &middot; <a href="#">联系我们</a></p>
                     </footer>
                 </div>
@@ -115,8 +123,8 @@
             </div>
         </div>
         
-        <script src="/OpenBlog/Public/js/open-blog.js"></script>
         <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
         <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="/OpenBlog/Public/js/open-blog.js"></script>
     </body>
 </html>
