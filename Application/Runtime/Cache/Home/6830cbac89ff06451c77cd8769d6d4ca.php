@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
-    <title>OpenBlog</title>    
+    <title><?php echo ($userinfo["name"]); ?>的微博</title>    
 
 
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -72,69 +72,45 @@
                     <div class="content-wrapper">
                         
     <div class="member-context-wrapper row">
-        <div class="col-md-2">
-            <ul class="nav nav-pills nav-stacked">
-  <li role="presentation"><a href="<?php echo U('Member/index');?>">首页</a></li>
-  <li role="presentation"><a href="">消息</a></li>
-  <li role="presentation"><a href="">收藏</a></li>
-</ul>
-        </div>
-        <div class="col-md-7">
-            <!--------------------------------------------
-            ===================model editor=====================
-            -->
-            
-            <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content" role="document">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">发表微博</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form action="<?php echo U('Tweets/add');?>" method="post">
-    <div class="form-group">
-        <label for="tweet-editor" class="sr-only">写微博</label>
-        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
-    </div>
-                
-    <div class="form-group">
-        <label id="tweet-editor-counter">您还可以输入字数：250</label>
-        <button type="submit" class="btn btn-primary  pull-right">发布</button>
-    </div>
-</form>
-                        </div>
-                        <!--
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        -->
-                    </div>
+        <div class="col-md-4">
+            <div class="userinfo">
+                <div class="row text-center tweet-boxing-heading">
+                    <?php echo ($userinfo['name']); ?>
                 </div>
-            </div>  
-            
-            <form action="<?php echo U('Tweets/add');?>" method="post">
-    <div class="form-group">
-        <label for="tweet-editor" class="sr-only">写微博</label>
-        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
-    </div>
                 
-    <div class="form-group">
-        <label id="tweet-editor-counter">您还可以输入字数：250</label>
-        <button type="submit" class="btn btn-primary  pull-right">发布</button>
-    </div>
-</form>
-            
-            <?php $__FOR_START_12059__=1;$__FOR_END_12059__=10;for($counter=$__FOR_START_12059__;$counter < $__FOR_END_12059__;$counter+=1){ ?><div class="tweet-boxing">
+                <div class="row">
+                    <div class="col-md-4 text-center">博文</div>
+                    <div class="col-md-4 text-center">关注</div>
+                    <div class="col-md-4 text-center">粉丝</div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-4 text-center"><?php echo ($user_count["tweets"]); ?></div>
+                    <div class="col-md-4 text-center"><?php echo ($user_count["follow"]); ?></div>
+                    <div class="col-md-4 text-center"><?php echo ($user_count["followed"]); ?></div>
+                </div>
+                <div class="row text-center">
+                <?php if($user_count["follow_flag"] == 0): ?><button type="button" class="btn btn-primary" disabled>关注TA</button>
+                <?php elseif($user_count["follow_flag"] == 1): ?>
+                    <button type="button" class="btn btn-primary">取消关注</button>
+                <?php else: ?>
+                    <button type="button" class="btn btn-primary" onclick="ThinkAjax.send(<?php echo U('User/follow');?>,'user_id=<?php echo ($userinfo["id"]); ?>','','result')">关注TA</button><?php endif; ?>
+                <div id="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <?php if(is_array($user_tweets)): $i = 0; $__LIST__ = $user_tweets;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="tweet-boxing">
                     <div class="row tweet-boxing-heading">
-                        <a href="">Username</a>
+                        <a href="<?php echo U('User/index', array('username'=>$userinfo['name']));?>">
+                            <?php echo ($userinfo["name"]); ?>
+                        </a>
                     </div>
                     <div class="row">
-                        2016-7-30 15:00
+                        <?php echo ($vo["create_date"]); ?>
                     </div>
                     <div class="row">
-                        每个周末，我们都会精心挑选一周内最震撼人心的太空图像，以飨读者。本周，X射线下的星系团闪烁着魅蓝色的光芒；远在土星附近的卡西尼号眺望遥远的母星地球；卫星拍摄到了里海海床上奇特的图案；詹姆斯·韦伯太空望远镜显露出了“土豪金”的真容。更多精彩，敬请欣赏。 
+                        <?php echo ($vo["tweet"]); ?> 
                     </div>
                     <hr class="tweet-boxing-line" />
                     <div class="row">
@@ -143,28 +119,13 @@
                             <a href="" class="btn btn-warning">收藏</a>
                         </div>
                     </div>
-                </div><?php } ?>
-        </div> <!-- end of <div class="col-md-7"> -->
+                </div><?php endforeach; endif; else: echo "" ;endif; ?>
         
-        <div class="col-md-3">
-            <div class="userinfo">
-    <div class="row text-center tweet-boxing-heading">
-        <?php echo ($_SESSION['user']['name']); ?>
-    </div>
-                
-    <div class="row">
-        <div class="col-md-4 text-center"><span class="glyphicon glyphicon-comment"></span></div>
-        <div class="col-md-4 text-center"><span class="glyphicon glyphicon-eye-open"></span></div>
-        <div class="col-md-4 text-center"><span class="glyphicon glyphicon-user"></span></div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-4 text-center">5</div>
-        <div class="col-md-4 text-center">15</div>
-        <div class="col-md-4 text-center">5</div>
-    </div>
-</div>
-
+        <nav>
+            <ul class="pagination">
+            <?php echo ($page); ?>
+            </ul>
+        </nav>
         </div>
     </div>
 

@@ -26,14 +26,11 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="<?php echo U('Member/index');?>">OpenBlog</a>
+                            <a class="navbar-brand" href="#">OpenBlog</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             
-    <ul class="nav navbar-nav">
-    <li><a href="<?php echo U('Member/index');?>">首页</a></li>
-</ul>
-<ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right">
     <li>
         <button type="button" class="btn btn-default navbar-btn pull-left" data-toggle="modal" data-target="#tweet-editor-modal">
             <span class="glyphicon glyphicon-edit"></span>
@@ -80,70 +77,7 @@
 </ul>
         </div>
         <div class="col-md-7">
-            <!--------------------------------------------
-            ===================model editor=====================
-            -->
-            
-            <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content" role="document">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">发表微博</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form action="<?php echo U('Tweets/add');?>" method="post">
-    <div class="form-group">
-        <label for="tweet-editor" class="sr-only">写微博</label>
-        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
-    </div>
-                
-    <div class="form-group">
-        <label id="tweet-editor-counter">您还可以输入字数：250</label>
-        <button type="submit" class="btn btn-primary  pull-right">发布</button>
-    </div>
-</form>
-                        </div>
-                        <!--
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        -->
-                    </div>
-                </div>
-            </div>  
-            
-            <form action="<?php echo U('Tweets/add');?>" method="post">
-    <div class="form-group">
-        <label for="tweet-editor" class="sr-only">写微博</label>
-        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
-    </div>
-                
-    <div class="form-group">
-        <label id="tweet-editor-counter">您还可以输入字数：250</label>
-        <button type="submit" class="btn btn-primary  pull-right">发布</button>
-    </div>
-</form>
-            
-            <?php $__FOR_START_12059__=1;$__FOR_END_12059__=10;for($counter=$__FOR_START_12059__;$counter < $__FOR_END_12059__;$counter+=1){ ?><div class="tweet-boxing">
-                    <div class="row tweet-boxing-heading">
-                        <a href="">Username</a>
-                    </div>
-                    <div class="row">
-                        2016-7-30 15:00
-                    </div>
-                    <div class="row">
-                        每个周末，我们都会精心挑选一周内最震撼人心的太空图像，以飨读者。本周，X射线下的星系团闪烁着魅蓝色的光芒；远在土星附近的卡西尼号眺望遥远的母星地球；卫星拍摄到了里海海床上奇特的图案；詹姆斯·韦伯太空望远镜显露出了“土豪金”的真容。更多精彩，敬请欣赏。 
-                    </div>
-                    <hr class="tweet-boxing-line" />
-                    <div class="row">
-                        <div class="btn-group pull-right" role="group" aria-label="帖子操作">
-                            <a href="" class="btn btn-info">转发</a>
-                            <a href="" class="btn btn-warning">收藏</a>
-                        </div>
-                    </div>
-                </div><?php } ?>
+            发布成功！
         </div> <!-- end of <div class="col-md-7"> -->
         
         <div class="col-md-3">

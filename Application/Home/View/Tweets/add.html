@@ -1,0 +1,23 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>OpenBlog</title>    
+</block>
+
+<block name="menu">
+    <include file="Public:member.menu" />
+</block>
+
+<block name="content">
+    <div class="member-context-wrapper row">
+        <div class="col-md-2">
+            <include file="Member:leftmenu" />
+        </div>
+        <div class="col-md-7">
+            发布成功！
+        </div> <!-- end of <div class="col-md-7"> -->
+        
+        <div class="col-md-3">
+            <include file="Member:rightmenu" />
+        </div>
+    </div>
+</block>

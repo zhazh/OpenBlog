@@ -1,0 +1,11 @@
+<form action="{:U('Tweets/add')}" method="post">
+    <div class="form-group">
+        <label for="tweet-editor" class="sr-only">写微博</label>
+        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
+    </div>
+                
+    <div class="form-group">
+        <label id="tweet-editor-counter">您还可以输入字数：250</label>
+        <button type="submit" class="btn btn-primary  pull-right">发布</button>
+    </div>
+</form>

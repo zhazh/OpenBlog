@@ -1,6 +1,18 @@
+.modal-open {
+  overflow: initial !important;
+}
+
+.main-body {
+    margin-top:60px;
+    margin-bottom:20px;
+}
 .content-wrapper {
     padding-top: 25px;
     padding-bottom: 0;
+}
+
+.userinfo {
+    padding: 20px 15px; 
 }
 
 /* Featurettes
@@ -56,4 +68,28 @@
 
 .member-tweet-editor {
     resize:none;
+}
+
+.tweet-boxing {
+    margin-top:50px;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:40px;
+    padding-right:40px;
+ 
+    border-radius: 6px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#ccddcc;
+}
+
+.tweet-boxing-heading {
+    font-weight: 400;
+    font-size:160%;
+}
+
+.tweet-boxing-line {
+    margin:5px auto;
+    padding:0;
+    
 }

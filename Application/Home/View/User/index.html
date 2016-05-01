@@ -1,0 +1,72 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>{$userinfo.name}的微博</title>    
+</block>
+
+<block name="menu">
+    <include file="Public:member.menu" />
+</block>
+
+<block name="content">
+    <div class="member-context-wrapper row">
+        <div class="col-md-4">
+            <div class="userinfo">
+                <div class="row text-center tweet-boxing-heading">
+                    {$userinfo['name']}
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 text-center">博文</div>
+                    <div class="col-md-4 text-center">关注</div>
+                    <div class="col-md-4 text-center">粉丝</div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-4 text-center">{$user_count.tweets}</div>
+                    <div class="col-md-4 text-center">{$user_count.follow}</div>
+                    <div class="col-md-4 text-center">{$user_count.followed}</div>
+                </div>
+                <div class="row text-center">
+                <if condition="$user_count.follow_flag eq 0">
+                    <button type="button" class="btn btn-primary" disabled>关注TA</button>
+                <elseif condition="$user_count.follow_flag eq 1" />
+                    <button type="button" class="btn btn-primary">取消关注</button>
+                <else />
+                    <button type="button" class="btn btn-primary" onclick="ThinkAjax.send({:U('User/follow')},'ajax=1&user_id={$userinfo.id}','','result')">关注TA</button>
+                </if>
+                <div id="result"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <volist name="user_tweets" id="vo">
+                <div class="tweet-boxing">
+                    <div class="row tweet-boxing-heading">
+                        <a href="{:U('User/index', array('username'=>$userinfo['name']))}">
+                            {$userinfo.name}
+                        </a>
+                    </div>
+                    <div class="row">
+                        {$vo.create_date}
+                    </div>
+                    <div class="row">
+                        {$vo.tweet} 
+                    </div>
+                    <hr class="tweet-boxing-line" />
+                    <div class="row">
+                        <div class="btn-group pull-right" role="group" aria-label="帖子操作">
+                            <a href="" class="btn btn-info">转发</a>
+                            <a href="" class="btn btn-warning">收藏</a>
+                        </div>
+                    </div>
+                </div>
+            </volist>
+        
+        <nav>
+            <ul class="pagination">
+            {$page}
+            </ul>
+        </nav>
+        </div>
+    </div>
+</block>
