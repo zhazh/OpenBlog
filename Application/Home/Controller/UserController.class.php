@@ -41,7 +41,7 @@ class UserController extends Controller {
             $tweets = M('tweet');
             
             $count = $tweets->where("user_id=$user_id")->count();
-            $Page = new \Think\Page($count,15);
+            $Page = new \Think\Page($count,10);
             $Page->setConfig('header','条微博');
             $show = $Page->show();
             echo Sshow;
@@ -95,15 +95,17 @@ class UserController extends Controller {
             $data['follow_user_id']=$user_id;
             $data['follow_date']=date("Y-m-d H:i:s");
             
+            $message = "";
             if ($Follow->create($data)) {
                 if ($result = $Follow->add()) {
-                        $this->ajaxReturn("关注成功");
-                    }else{
-                        $this->ajaxReturn("关注失败，插入失败");
-                    }
+                        $message="关注成功";
                 }else{
-                    $this->ajaxReturn("关注失败，生成失败");
+                        $message="关注失败，插入失败";
                 }
+            }else{
+                    $message="关注失败，生成失败";
+            }
+            return $this->ajaxReturn($message, 'json');
         }
     }
     

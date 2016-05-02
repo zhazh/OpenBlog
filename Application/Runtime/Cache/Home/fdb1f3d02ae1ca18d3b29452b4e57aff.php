@@ -26,11 +26,14 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">OpenBlog</a>
+                            <a class="navbar-brand" href="<?php echo U('Member/index');?>">OpenBlog</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav">
+    <li><a href="<?php echo U('Member/index');?>">首页</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
     <li>
         <button type="button" class="btn btn-default navbar-btn pull-left" data-toggle="modal" data-target="#tweet-editor-modal">
             <span class="glyphicon glyphicon-edit"></span>

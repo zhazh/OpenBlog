@@ -16,15 +16,15 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-4 text-center">博文</div>
-                    <div class="col-md-4 text-center">关注</div>
-                    <div class="col-md-4 text-center">粉丝</div>
-                </div>
-    
-                <div class="row">
                     <div class="col-md-4 text-center">{$user_count.tweets}</div>
                     <div class="col-md-4 text-center">{$user_count.follow}</div>
                     <div class="col-md-4 text-center">{$user_count.followed}</div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 text-center">博文</div>
+                    <div class="col-md-4 text-center">关注</div>
+                    <div class="col-md-4 text-center">粉丝</div>
                 </div>
                 <div class="row text-center">
                 <if condition="$user_count.follow_flag eq 0">
@@ -32,9 +32,9 @@
                 <elseif condition="$user_count.follow_flag eq 1" />
                     <button type="button" class="btn btn-primary">取消关注</button>
                 <else />
-                    <button type="button" class="btn btn-primary" onclick="ThinkAjax.send({:U('User/follow')},'ajax=1&user_id={$userinfo.id}','','result')">关注TA</button>
+                    <button type="button" class="btn btn-primary follow_button" url="{:U('User/follow')}" userid="{$userinfo['id']}">关注TA</button>
                 </if>
-                <div id="result"></div>
+                    <div id="follow_user_result"></div>
                 </div>
             </div>
         </div>
@@ -63,9 +63,7 @@
             </volist>
         
         <nav>
-            <ul class="pagination">
             {$page}
-            </ul>
         </nav>
         </div>
     </div>

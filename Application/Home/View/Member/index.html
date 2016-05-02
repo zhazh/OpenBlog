@@ -12,31 +12,7 @@
         <div class="col-md-2">
             <include file="Member:leftmenu" />
         </div>
-        <div class="col-md-7">
-            <!--------------------------------------------
-            ===================model editor=====================
-            -->
-            
-            <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content" role="document">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">发表微博</h4>
-                        </div>
-                        <div class="modal-body">
-                            <include file="Tweets:tweet.editor"/>
-                        </div>
-                        <!--
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        -->
-                    </div>
-                </div>
-            </div>  
-            
+        <div class="col-md-7">       
             <include file="Tweets:tweet.editor"/>
             
             <for start="1" end="10" step="1" name="counter" >

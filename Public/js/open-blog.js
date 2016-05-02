@@ -1,4 +1,16 @@
 $(document).ready(function(){
+    $("button.follow_button").click(function(){
+        var url=$(this).attr("url");
+        var userid=$(this).attr("userid");
+        $.post(
+            url,
+            {user_id:userid},
+            function(data){
+                $("#follow_user_result").html(data);
+            }
+        ); 
+    });
+                    
         $("button#reg-user-button").click(function(){
             var cansubmit = 1;
             var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;

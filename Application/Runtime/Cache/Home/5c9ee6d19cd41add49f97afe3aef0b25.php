@@ -42,6 +42,39 @@
             </div>
         </nav>
         
+        <!--
+        ==========================editor modal=================================
+        ============================待改进=====================================
+        -->
+        <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" role="document">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">发表微博</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="<?php echo U('Tweets/add');?>" method="post">
+    <div class="form-group">
+        <label for="tweet-editor" class="sr-only">写微博</label>
+        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
+    </div>
+                
+    <div class="form-group">
+        <label id="tweet-editor-counter">您还可以输入字数：250</label>
+        <button type="submit" class="btn btn-primary  pull-right">发布</button>
+    </div>
+</form>
+                        </div>
+                        <!--
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                        -->
+                    </div>
+                </div>
+        </div>  
         
         <div class="container-fluid main-body">
             <div class="row">

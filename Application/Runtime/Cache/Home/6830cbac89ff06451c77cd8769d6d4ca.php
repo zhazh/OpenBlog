@@ -64,6 +64,39 @@
             </div>
         </nav>
         
+        <!--
+        ==========================editor modal=================================
+        ============================待改进=====================================
+        -->
+        <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" role="document">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">发表微博</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="<?php echo U('Tweets/add');?>" method="post">
+    <div class="form-group">
+        <label for="tweet-editor" class="sr-only">写微博</label>
+        <textarea id="tweet-editor" name="new_tweet" class="form-control member-tweet-editor" rows="5" placeholder="快来分享你的观点吧..."></textarea>
+    </div>
+                
+    <div class="form-group">
+        <label id="tweet-editor-counter">您还可以输入字数：250</label>
+        <button type="submit" class="btn btn-primary  pull-right">发布</button>
+    </div>
+</form>
+                        </div>
+                        <!--
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                        -->
+                    </div>
+                </div>
+        </div>  
         
         <div class="container-fluid main-body">
             <div class="row">
@@ -79,23 +112,23 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-4 text-center">博文</div>
-                    <div class="col-md-4 text-center">关注</div>
-                    <div class="col-md-4 text-center">粉丝</div>
-                </div>
-    
-                <div class="row">
                     <div class="col-md-4 text-center"><?php echo ($user_count["tweets"]); ?></div>
                     <div class="col-md-4 text-center"><?php echo ($user_count["follow"]); ?></div>
                     <div class="col-md-4 text-center"><?php echo ($user_count["followed"]); ?></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 text-center">博文</div>
+                    <div class="col-md-4 text-center">关注</div>
+                    <div class="col-md-4 text-center">粉丝</div>
                 </div>
                 <div class="row text-center">
                 <?php if($user_count["follow_flag"] == 0): ?><button type="button" class="btn btn-primary" disabled>关注TA</button>
                 <?php elseif($user_count["follow_flag"] == 1): ?>
                     <button type="button" class="btn btn-primary">取消关注</button>
                 <?php else: ?>
-                    <button type="button" class="btn btn-primary" onclick="ThinkAjax.send(<?php echo U('User/follow');?>,'user_id=<?php echo ($userinfo["id"]); ?>','','result')">关注TA</button><?php endif; ?>
-                <div id="result"></div>
+                    <button type="button" class="btn btn-primary follow_button" url="<?php echo U('User/follow');?>" userid="<?php echo ($userinfo['id']); ?>">关注TA</button><?php endif; ?>
+                    <div id="follow_user_result"></div>
                 </div>
             </div>
         </div>
@@ -122,9 +155,7 @@
                 </div><?php endforeach; endif; else: echo "" ;endif; ?>
         
         <nav>
-            <ul class="pagination">
             <?php echo ($page); ?>
-            </ul>
         </nav>
         </div>
     </div>

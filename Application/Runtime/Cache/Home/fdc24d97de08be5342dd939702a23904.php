@@ -64,27 +64,11 @@
             </div>
         </nav>
         
-        
-        <div class="container-fluid main-body">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="content-wrapper">
-                        
-    <div class="member-context-wrapper row">
-        <div class="col-md-2">
-            <ul class="nav nav-pills nav-stacked">
-  <li role="presentation"><a href="<?php echo U('Member/index');?>">首页</a></li>
-  <li role="presentation"><a href="">消息</a></li>
-  <li role="presentation"><a href="">收藏</a></li>
-</ul>
-        </div>
-        <div class="col-md-7">
-            <!--------------------------------------------
-            ===================model editor=====================
-            -->
-            
-            <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
+        <!--
+        ==========================editor modal=================================
+        ============================待改进=====================================
+        -->
+        <div id="tweet-editor-modal" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content" role="document">
                         <div class="modal-header">
@@ -112,8 +96,23 @@
                         -->
                     </div>
                 </div>
-            </div>  
-            
+        </div>  
+        
+        <div class="container-fluid main-body">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="content-wrapper">
+                        
+    <div class="member-context-wrapper row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+  <li role="presentation"><a href="<?php echo U('Member/index');?>">首页</a></li>
+  <li role="presentation"><a href="">消息</a></li>
+  <li role="presentation"><a href="">收藏</a></li>
+</ul>
+        </div>
+        <div class="col-md-7">       
             <form action="<?php echo U('Tweets/add');?>" method="post">
     <div class="form-group">
         <label for="tweet-editor" class="sr-only">写微博</label>
@@ -126,7 +125,7 @@
     </div>
 </form>
             
-            <?php $__FOR_START_12059__=1;$__FOR_END_12059__=10;for($counter=$__FOR_START_12059__;$counter < $__FOR_END_12059__;$counter+=1){ ?><div class="tweet-boxing">
+            <?php $__FOR_START_30791__=1;$__FOR_END_30791__=10;for($counter=$__FOR_START_30791__;$counter < $__FOR_END_30791__;$counter+=1){ ?><div class="tweet-boxing">
                     <div class="row tweet-boxing-heading">
                         <a href="">Username</a>
                     </div>
