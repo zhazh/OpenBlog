@@ -1,0 +1,36 @@
+<div id="mod-ob-article-editor" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" role="document">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">发表微博</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="article-editor">
+                        <!--
+                        <div class="article-editor-header">
+                            有什么新鲜事分享给大家吧！
+                        </div>
+                        -->
+                        <div id="article-editor-alert" class="alert alert-danger alert-dismissible fade in sr-only" role="alert">
+                            <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>-->
+                            <em id="article-editor-alert-content"></em>
+                        </div>
+                        <textarea id="article-textarea" name="article_content" 
+                                rows="5" class="article-editor-content has-error" placeholder="有什么新鲜事分享给大家吧.."></textarea>
+                        <label>
+                            <em>您还可以输入字数：</em>
+                            <span id="article-editor-counter">250</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btn-article-submit"
+                        url="{:U('Article/add')}">
+                        发布
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>  

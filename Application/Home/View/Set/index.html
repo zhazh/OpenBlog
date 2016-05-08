@@ -1,0 +1,75 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>OpenBlog</title>    
+</block>
+
+<block name="menu">
+    <include file="Public:member.menu" />
+</block>
+
+<block name="content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="home-left-menu-wrapper">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{:U('Set/index')}">我的信息</a></li>
+                    <li><a href="{:U('Set/logo')}">头像</a></li>
+                </ul>
+        </div>
+
+        </div>
+        <div class="col-md-8"> 
+            <div class="setting-box-wrapper">
+                <div class="setting-box-wrapper-header">
+                    我的信息
+                </div>
+                <div class="setting-box-wrapper-body">
+                    <div class="info-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                用户名
+                            </div>
+                            <div class="col-md-6">
+                                daqinshi_zh@163.com
+                            </div>
+                            <div class="col-md-3">
+                                修改
+                            </div>
+                        </div>
+                    </div> <!-- info-item -->
+                    
+                    <div class="info-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                邮箱
+                            </div>
+                            <div class="col-md-6">
+                                daqinshi_zh@163.com
+                            </div>
+                            <div class="col-md-3">
+                                修改
+                            </div>
+                        </div>
+                    </div> <!-- info-item -->
+                    
+                    <div class="info-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                密码
+                            </div>
+                            <div class="col-md-6">
+                                daqinshi_zh@163.com
+                            </div>
+                            <div class="col-md-3">
+                                修改
+                            </div>
+                        </div>
+                    </div> <!-- info-item -->
+                </div>                
+            </div>
+        </div> <!-- end of <div class="col-md-7"> -->
+        
+        <div class="col-md-2">
+        </div>
+    </div>
+</block>

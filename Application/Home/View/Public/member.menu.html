@@ -1,9 +1,9 @@
 <ul class="nav navbar-nav">
-    <li><a href="{:U('Member/index')}">首页</a></li>
+    <li><a href="{:U('Home/index')}">首页</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
     <li>
-        <button type="button" class="btn btn-default navbar-btn pull-left" data-toggle="modal" data-target="#tweet-editor-modal">
+        <button type="button" class="btn btn-primary navbar-btn pull-left" data-toggle="modal" data-target="#mod-ob-article-editor">
             <span class="glyphicon glyphicon-edit"></span>
         </button>
     </li>    
@@ -22,7 +22,7 @@
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="">账号设置</a></li>
+            <li><a href="{:U('Set/index')}">账号设置</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="{:U('User/logout')}">退出</a></li>
         </ul>

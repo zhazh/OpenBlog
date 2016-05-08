@@ -1,0 +1,41 @@
+<extend name="Public:base" />
+<block name="title">
+    <title>OpenBlog</title>    
+</block>
+
+<block name="menu">
+    <include file="Public:member.menu" />
+</block>
+
+<block name="content">
+    <div class="row">
+        <div class="col-md-2">
+            <include file="Home:leftmenu" />
+        </div>
+        <div class="col-md-8">              
+            <for start="1" end="10" step="1" name="counter" >
+                <div class="article-boxing">
+                    <div class="article-boxing-heading">
+                        <a href="">zhazh</a><br />
+                        <small>2016-7-30 15:00</small>
+                    </div>
+                    <div class="article-boxing-content">
+                        <p>
+                            每个周末，我们都会精心挑选一周内最震撼人心的太空图像，以飨读者。本周，X射线下的星系团闪烁着魅蓝色的光芒；远在土星附近的卡西尼号眺望遥远的母星地球；卫星拍摄到了里海海床上奇特的图案；詹姆斯·韦伯太空望远镜显露出了“土豪金”的真容。更多精彩，敬请欣赏。
+                        </p> 
+                    </div>
+                    <div class="article-boxing-footer">
+                            <div class="btn-group" role="group" aria-label="帖子操作">
+                                <a href="" class="btn btn-info">转发</a>
+                                <a href="" class="btn btn-warning">收藏</a>
+                            </div>
+                    </div>
+                </div>
+            </for>
+        </div> <!-- end of <div class="col-md-7"> -->
+        
+        <div class="col-md-2">
+            <include file="Home:rightmenu" />
+        </div>
+    </div>
+</block>

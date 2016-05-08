@@ -1,6 +1,6 @@
 <extend name="Public:base" />
 <block name="title">
-    <title>{$userinfo.name}的微博</title>    
+    <title>用户首页</title>    
 </block>
 
 <block name="menu">
@@ -8,63 +8,62 @@
 </block>
 
 <block name="content">
-    <div class="member-context-wrapper row">
-        <div class="col-md-4">
-            <div class="userinfo">
-                <div class="row text-center tweet-boxing-heading">
-                    {$userinfo['name']}
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-4 text-center">{$user_count.tweets}</div>
-                    <div class="col-md-4 text-center">{$user_count.follow}</div>
-                    <div class="col-md-4 text-center">{$user_count.followed}</div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-4 text-center">博文</div>
-                    <div class="col-md-4 text-center">关注</div>
-                    <div class="col-md-4 text-center">粉丝</div>
-                </div>
-                <div class="row text-center">
-                <if condition="$user_count.follow_flag eq 0">
-                    <button type="button" class="btn btn-primary" disabled>关注TA</button>
-                <elseif condition="$user_count.follow_flag eq 1" />
-                    <button type="button" class="btn btn-primary">取消关注</button>
-                <else />
-                    <button type="button" class="btn btn-primary follow_button" url="{:U('User/follow')}" userid="{$userinfo['id']}">关注TA</button>
-                </if>
-                    <div id="follow_user_result"></div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-2">
+			<div class="home-left-menu-wrapper">
+			    <div class="userinfo-boxing">
+			        <div class="userinfo-boxing-header">
+			            {$userinfo.name}
+			        </div>
+			        <div class="userinfo-boxing-content">
+			            <div class="row">
+			                <div class="col-md-4 text-center"><span class="glyphicon glyphicon-comment"></span></div>
+			                <div class="col-md-4 text-center"><span class="glyphicon glyphicon-eye-open"></span></div>
+			                <div class="col-md-4 text-center"><span class="glyphicon glyphicon-user"></span></div>
+			            </div>
+			    
+			            <div class="row">
+			                <div class="col-md-4 text-center">5</div>
+			                <div class="col-md-4 text-center">15</div>
+			                <div class="col-md-4 text-center">5</div>
+			            </div>
+                        
+                        <div class="row text-center">
+                            <button class="btn btn-primary">关注TA</button>
+                        </div>
+			        </div>
+			    </div>                
+			</div>
         </div>
-        <div class="col-md-8">
-            <volist name="user_tweets" id="vo">
-                <div class="tweet-boxing">
-                    <div class="row tweet-boxing-heading">
+        
+        <div class="col-md-8">  
+            <volist name="articles" id="vo">
+                <div class="article-boxing">
+                    <div class="article-boxing-heading">
                         <a href="{:U('User/index', array('username'=>$userinfo['name']))}">
                             {$userinfo.name}
-                        </a>
+                        </a> <br />
+                        <small> {$vo.post_time}</small>
                     </div>
-                    <div class="row">
-                        {$vo.create_date}
+                    <div class="article-boxing-content">
+                        <p>
+                            {$vo.content} 
+                        </p> 
                     </div>
-                    <div class="row">
-                        {$vo.tweet} 
-                    </div>
-                    <hr class="tweet-boxing-line" />
-                    <div class="row">
-                        <div class="btn-group pull-right" role="group" aria-label="帖子操作">
-                            <a href="" class="btn btn-info">转发</a>
-                            <a href="" class="btn btn-warning">收藏</a>
-                        </div>
+                    <div class="article-boxing-footer">
+                            <div class="btn-group" role="group" aria-label="帖子操作">
+                                <a href="" class="btn btn-info">转发</a>
+                                <a href="" class="btn btn-warning">收藏</a>
+                            </div>
                     </div>
                 </div>
             </volist>
-        
-        <nav>
-            {$page}
-        </nav>
+            
+            <div class="user-article-page">
+                {$page}
+            </div>
+        </div> <!-- end of <div class="col-md-7"> -->
+        <div class="col-md-2">
         </div>
     </div>
 </block>

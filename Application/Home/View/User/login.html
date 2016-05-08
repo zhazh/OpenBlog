@@ -1,6 +1,6 @@
 <extend name="Public:base" />
 <block name="title">
-    <title>OpenBlog</title>    
+    <title>用户登录</title>    
 </block>
 
 <block name="menu">
@@ -9,40 +9,47 @@
 
 <block name="content">
     <div class="row">
-        <div class="col-md-offset-4 col-md-4">           
-            <div class="sigin-box-warpper-heading">
-                <h2>用户登录</h2>
-            </div>
-            
-            <form action="{:U('User/login')}" method="post" class="sigin-box-warpper">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="ob-content-boxing">
+                <div class="ob-content-boxing-header">
+                    用户登录
+                </div>
+                
                 <if condition="isset($message)">
                     <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {$message}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <em>{$message}</em>
                     </div>
                 </if>
                 
-                <div class="form-group">
-                    <label for="loginEmail" class="control-label">邮箱</label>
-                    <input type="email" class="form-control" id="loginEmail" name="userEmail" placeholder="邮箱" required autofocus>
+                <div class="ob-content-boxing-content">
+                    <form action="{:U('User/login')}" method="post">
+                        <div id="login_email_group" class="form-group">
+                            <label for="login_email" class="control-label sr-only">邮箱</label>
+                            <input id="login_email" name="user_email" type="text" class="form-control" placeholder="邮箱" 
+                                data-trigger="manual" data-placement="right" data-container="body"
+                                data-toggle="popover" data-content="">
+                        </div>
+                        <div id="login_password_group" class="form-group">
+                            <label for="login_password" class="control-label sr-only">密码</label>
+                            <input id="login_password" name="user_password" type="password" class="form-control" placeholder="密码" 
+                                data-trigger="manual" data-placement="right" data-container="body"
+                                data-toggle="popover" data-content="">
+                        </div>
+                        <div class="form-group">
+                            <label class="">
+                                <input type="checkbox" name="user_auto" value="auto" checked="checked">下次自动登录
+                            </label>
+                            <label class="pull-right">
+                                <a href="{:U('User/forgot')}">忘记密码？</a>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button id="btn_login_submit" type="submit" class="btn btn-primary btn-block">确认</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="loginPasswd" class="control-label">密码</label>
-                    <input type="password" class="form-control" id="loginPasswd" name="userPasswd" placeholder="密码" required>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" value="loginRemembered">记住密码
-                    </label>
-                    <label class="pull-right">
-                        <a href="">忘记密码？</a>
-                    </label>
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">确认</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </block>
